@@ -4,7 +4,8 @@ const { getUser } = require('./controller');
 const router = express.Router();
 
 router.get('/:username', async (req = request, resp = response, next) => {
-  const result = await getUser();
+  const username = req.params.username;
+  const result = await getUser(username);
   resp.json(result);
 });
 
